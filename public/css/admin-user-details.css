@@ -1,0 +1,486 @@
+.user-details-page {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.back-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    text-decoration: none;
+    color: #64748b;
+    font-weight: 600;
+    margin-bottom: 2rem;
+    transition: all 0.2s;
+}
+
+.back-btn:hover {
+    background: #f8fafc;
+    border-color: #cbd5e1;
+}
+
+/* Profile Card */
+.profile-card {
+    background: white;
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    margin-bottom: 2rem;
+}
+
+.profile-header {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.profile-avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.profile-info h2 {
+    font-size: 1.75rem;
+    font-weight: 700;
+    margin: 0 0 0.5rem 0;
+    color: #1e293b;
+}
+
+.email {
+    font-size: 1rem;
+    color: #64748b;
+    margin: 0 0 1rem 0;
+}
+
+.profile-badges {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 0.75rem;
+}
+
+.badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    padding: 0.25rem 0.75rem;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+.badge.admin {
+    background: #fef3c7;
+    color: #92400e;
+}
+
+.badge.user {
+    background: #dbeafe;
+    color: #1e40af;
+}
+
+.badge.you {
+    background: #d1fae5;
+    color: #065f46;
+}
+
+.joined-date {
+    font-size: 0.875rem;
+    color: #94a3b8;
+    margin: 0;
+}
+
+.profile-actions {
+    display: flex;
+    gap: 1rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid #e2e8f0;
+}
+
+.btn {
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.btn-primary {
+    background: #3b82f6;
+    color: white;
+}
+
+.btn-primary:hover {
+    background: #2563eb;
+}
+
+.btn-warning {
+    background: #f59e0b;
+    color: white;
+}
+
+.btn-warning:hover {
+    background: #d97706;
+}
+
+.btn-danger {
+    background: #ef4444;
+    color: white;
+}
+
+.btn-danger:hover {
+    background: #dc2626;
+}
+
+/* Stats Grid */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.stat-card {
+    background: white;
+    border-radius: 12px;
+    padding: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.stat-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    color: white;
+}
+
+.stat-card.blue .stat-icon { background: linear-gradient(135deg, #3b82f6, #2563eb); }
+.stat-card.green .stat-icon { background: linear-gradient(135deg, #10b981, #059669); }
+.stat-card.purple .stat-icon { background: linear-gradient(135deg, #8b5cf6, #7c3aed); }
+.stat-card.orange .stat-icon { background: linear-gradient(135deg, #f59e0b, #d97706); }
+
+.stat-content h3 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin: 0;
+    color: #1e293b;
+}
+
+.stat-content p {
+    font-size: 0.875rem;
+    color: #64748b;
+    margin: 0.25rem 0;
+}
+
+.stat-detail {
+    font-size: 0.75rem;
+    color: #94a3b8;
+}
+
+/* Charts */
+.chart-card {
+    background: white;
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    margin-bottom: 2rem;
+}
+
+.chart-header {
+    margin-bottom: 1.5rem;
+}
+
+.chart-header h3 {
+    font-size: 1.125rem;
+    font-weight: 600;
+    margin: 0;
+    color: #1e293b;
+}
+
+canvas {
+    max-height: 300px;
+}
+
+.charts-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.stats-summary {
+    background: white;
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.stats-summary h3 {
+    font-size: 1.125rem;
+    font-weight: 600;
+    margin: 0 0 1.5rem 0;
+    color: #1e293b;
+}
+
+.summary-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 0;
+    border-bottom: 1px solid #f1f5f9;
+}
+
+.summary-item:last-child {
+    border-bottom: none;
+}
+
+.label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.875rem;
+    color: #64748b;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+}
+
+.dot.completed { background: #10b981; }
+.dot.ongoing { background: #3b82f6; }
+.dot.pending { background: #f59e0b; }
+
+.value {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #1e293b;
+}
+
+/* Data Sections */
+.data-section {
+    background: white;
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    margin-bottom: 2rem;
+}
+
+.data-section h3 {
+    font-size: 1.125rem;
+    font-weight: 600;
+    margin: 0 0 1.5rem 0;
+    color: #1e293b;
+}
+
+/* Tables */
+.data-table {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+thead {
+    background: #f8fafc;
+}
+
+th {
+    text-align: left;
+    padding: 0.75rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #64748b;
+    text-transform: uppercase;
+}
+
+td {
+    padding: 0.75rem;
+    border-top: 1px solid #f1f5f9;
+    font-size: 0.875rem;
+}
+
+.status-badge {
+    padding: 0.25rem 0.75rem;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+.status-completed { background: #d1fae5; color: #065f46; }
+.status-ongoing { background: #dbeafe; color: #1e40af; }
+.status-pending { background: #fef3c7; color: #92400e; }
+
+.priority-badge {
+    padding: 0.25rem 0.75rem;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+.priority-high { background: #fee2e2; color: #991b1b; }
+.priority-medium { background: #fef3c7; color: #92400e; }
+.priority-low { background: #dbeafe; color: #1e40af; }
+
+/* Goals Grid */
+.goals-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1rem;
+}
+
+.goal-card {
+    padding: 1rem;
+    background: #f8fafc;
+    border-radius: 8px;
+}
+
+.goal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.goal-header h4 {
+    font-size: 0.875rem;
+    font-weight: 600;
+    margin: 0;
+    color: #1e293b;
+}
+
+.goal-status {
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.625rem;
+    font-weight: 600;
+}
+
+.goal-status.completed { background: #d1fae5; color: #065f46; }
+.goal-status.ongoing { background: #dbeafe; color: #1e40af; }
+.goal-status.pending { background: #fef3c7; color: #92400e; }
+
+.goal-progress {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.progress-bar {
+    flex: 1;
+    height: 8px;
+    background: #e2e8f0;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+}
+
+.progress-text {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #3b82f6;
+}
+
+.goal-date {
+    font-size: 0.75rem;
+    color: #64748b;
+    margin: 0;
+}
+
+/* Achievements Grid */
+.achievements-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1rem;
+}
+
+.achievement-card {
+    text-align: center;
+    padding: 1.5rem;
+    background: #f8fafc;
+    border-radius: 8px;
+}
+
+.achievement-icon {
+    width: 60px;
+    height: 60px;
+    margin: 0 auto 1rem;
+    background: linear-gradient(135deg, #f59e0b, #d97706);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    color: white;
+}
+
+.achievement-card h4 {
+    font-size: 0.875rem;
+    font-weight: 600;
+    margin: 0 0 0.5rem 0;
+    color: #1e293b;
+}
+
+.achievement-card p {
+    font-size: 0.75rem;
+    color: #64748b;
+    margin: 0 0 0.5rem 0;
+}
+
+.achievement-date {
+    font-size: 0.625rem;
+    color: #94a3b8;
+}
+
+.empty-message, .empty {
+    text-align: center;
+    color: #94a3b8;
+    font-size: 0.875rem;
+    padding: 2rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .user-details-page {
+        padding: 1rem;
+    }
+    
+    .profile-header {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .charts-row {
+        grid-template-columns: 1fr;
+    }
+    
+    .goals-grid, .achievements-grid {
+        grid-template-columns: 1fr;
+    }
+}

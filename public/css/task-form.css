@@ -1,0 +1,197 @@
+/* ========================================
+   TASK FORM STYLES
+   ======================================== */
+
+.task-form-wrapper {
+    padding: 30px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* Breadcrumb */
+.breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 25px;
+    font-size: 14px;
+}
+
+.breadcrumb a {
+    color: #64748b;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: color 0.3s ease;
+}
+
+.breadcrumb a:hover {
+    color: #667eea;
+}
+
+.breadcrumb .separator {
+    color: #cbd5e1;
+}
+
+.breadcrumb .current {
+    color: #1e293b;
+    font-weight: 600;
+}
+
+/* Form Container */
+.task-form-container {
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+}
+
+/* Form Header */
+.form-header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    padding: 30px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    color: white;
+}
+
+.form-icon {
+    width: 60px;
+    height: 60px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+}
+
+.form-icon.edit {
+    background: rgba(255, 255, 255, 0.25);
+}
+
+.form-header h2 {
+    margin: 0;
+    font-size: 26px;
+    font-weight: 700;
+}
+
+.form-header p {
+    margin: 5px 0 0 0;
+    font-size: 15px;
+    opacity: 0.95;
+}
+
+/* Alert Messages */
+.alert {
+    margin: 25px;
+    padding: 15px 20px;
+    border-radius: 10px;
+    display: flex;
+    gap: 15px;
+    align-items: flex-start;
+}
+
+.alert i {
+    font-size: 20px;
+    margin-top: 2px;
+}
+
+.alert-danger {
+    background: #fef2f2;
+    border: 1px solid #fecaca;
+    color: #991b1b;
+}
+
+.alert strong {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 15px;
+}
+
+.alert ul {
+    margin: 0;
+    padding-left: 20px;
+}
+
+.alert li {
+    margin: 5px 0;
+    font-size: 14px;
+}
+
+/* Task Form */
+.task-form {
+    padding: 30px;
+}
+
+/* Form Section */
+.form-section {
+    margin-bottom: 35px;
+    padding-bottom: 25px;
+    border-bottom: 2px solid #f1f5f9;
+}
+
+.form-section:last-of-type {
+    border-bottom: none;
+}
+
+.section-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 0 0 25px 0;
+    font-size: 18px;
+    color: #1e293b;
+    font-weight: 600;
+}
+
+.section-title i {
+    color: #667eea;
+    font-size: 20px;
+}
+
+/* Form Row */
+.form-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.form-row:last-child {
+    margin-bottom: 0;
+}
+
+/* Form Group */
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group.full-width {
+    grid-column: 1 / -1;
+}
+
+.form-group label {
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #334155;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.form-group label i {
+    color: #667eea;
+    font-size: 14px;
+}
+
+.required {
+    color: #ef4444;
+    font-weight: bold;
+}
+
+/* Form Controls */
