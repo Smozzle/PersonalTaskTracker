@@ -63,9 +63,11 @@
         </nav>
 
         <!-- Admin Sidebar Footer -->
-        <div class="sidebar-footer">
-            <a href="{{ route('profile.edit') }}" class="footer-link" title="Settings">
-                <i class="fas fa-cog"></i>
+      <div class="sidebar-footer">
+            <a href="{{ route('admin.settings') }}" 
+               class="footer-link {{ request()->routeIs('admin.settings') ? 'active' : '' }}" 
+               title="Admin Settings">
+                <i class="fas fa-cog" aria-hidden="true"></i>
                 <span>Settings</span>
             </a>
             <form action="{{ route('logout') }}" method="POST" class="logout-form">
@@ -153,9 +155,8 @@
                             <small>{{ Auth::user()->email }}</small>
                         </div>
                         <div class="dropdown-divider"></div>
-                        <a href="{{ route('admin.dashboard') }}"><i class="fas fa-shield-alt"></i> Admin Dashboard</a>
-                        <a href="{{ route('dashboard') }}"><i class="fas fa-home"></i> My Dashboard</a>
-                        <a href="{{ route('profile.edit') }}"><i class="fas fa-user-edit"></i> Edit Profile</a>
+                        <a href="{{ route('admin.dashboard') }}"><i class="fas fa-shield-alt"></i> My Dashboard</a>
+                        <a href="{{ route('admin.settings') }}"><i class="fas fa-cog"></i> Admin Settings</a>
                         <div class="dropdown-divider"></div>
                         <form action="{{ route('logout') }}" method="POST">
                             @csrf

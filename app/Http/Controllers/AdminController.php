@@ -12,6 +12,7 @@ use App\Models\Achievement;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Storage;
 
 class AdminController extends Controller
 {
@@ -267,5 +268,77 @@ class AdminController extends Controller
         ];
 
         return view('admin.statistics', compact('stats', 'platformStats'));
+    }
+
+    /**
+     * ----------------------------
+     * Admin Settings Methods
+     * ----------------------------
+     */
+
+    /**
+     * Show admin settings page
+     */
+    public function settings()
+    {
+        $admin = auth()->user();
+        return view('admin.settings', compact('admin'));
+    }
+
+    /**
+     * Update admin profile info
+     */
+    public function updateSettings(Request $request)
+    {
+        $admin = auth()->user();
+
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|email|unique:users,email,' . $admin->id,
+        ]);
+
+        $admin->name = $request->name;
+        $admin->email = $request->email;
+        $admin->save();
+
+        return redirect()->route('admin.settings')->with('success', 'Profile updated successfully.');
+    }
+
+    /**
+     * Update admin password
+     */
+    public function updatePassword(Request $request)
+    {
+        $admin = auth()->user();
+
+        $request->validate([
+            'current_password' => 'required',
+            'password' => 'required|string|min:6|confirmed',
+        ]);
+
+        if (!Hash::check($request->current_password, $admin->password)) {
+            return redirect()->back()->with('error', 'Current password is incorrect.');
+        }
+
+        $admin->password = Hash::make($request->password);
+        $admin->save();
+
+        return redirect()->route('admin.settings')->with('success', 'Password updated successfully.');
+    }
+
+    /**
+     * Remove profile picture
+     */
+    public function removeProfilePicture()
+    {
+        $admin = auth()->user();
+
+        if ($admin->profile_picture) {
+            Storage::delete($admin->profile_picture);
+            $admin->profile_picture = null;
+            $admin->save();
+        }
+
+        return redirect()->route('admin.settings')->with('success', 'Profile picture removed successfully.');
     }
 }

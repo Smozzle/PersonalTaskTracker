@@ -49,55 +49,39 @@ Route::middleware('auth')->group(function () {
         return app(DashboardController::class)->index();
     })->name('dashboard');
 
-    // Profile
+    // Profile (for normal users)
     Route::get('/profile/edit', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::post('/profile/update', [ProfileController::class, 'update'])->name('profile.update');
 
-    // Tasks (custom route BEFORE resource)
-    Route::patch('/tasks/{task}/complete', [TaskController::class, 'markAsDone'])
-        ->name('tasks.markAsDone');
-
+    // Tasks
+    Route::patch('/tasks/{task}/complete', [TaskController::class, 'markAsDone'])->name('tasks.markAsDone');
     Route::resource('tasks', TaskController::class);
 
     // Categories
     Route::resource('categories', CategoryController::class);
 
     // Achievements
-    Route::get('/achievements', [AchievementController::class, 'index'])
-        ->name('achievements.index');
+    Route::get('/achievements', [AchievementController::class, 'index'])->name('achievements.index');
 
     // Reminders
     Route::post('/reminders', [ReminderController::class, 'store']);
 
     // Goals
-    Route::post('/goals/{goal}/ajax-update', [GoalController::class, 'ajaxUpdate'])
-        ->name('goals.ajaxUpdate');
-
+    Route::post('/goals/{goal}/ajax-update', [GoalController::class, 'ajaxUpdate'])->name('goals.ajaxUpdate');
     Route::resource('goals', GoalController::class);
 
     // Reports
-    Route::get('/reports', [ReportController::class, 'index'])
-        ->name('reports.index');
-
-    Route::get('/reports/export-pdf', [ReportController::class, 'exportPdf'])
-        ->name('reports.export-pdf');
+    Route::get('/reports', [ReportController::class, 'index'])->name('reports.index');
+    Route::get('/reports/export-pdf', [ReportController::class, 'exportPdf'])->name('reports.export-pdf');
 
     // Notifications
-    Route::get('/notifications', [NotificationController::class, 'index'])
-        ->name('notifications.index');
+    Route::get('/notifications', [NotificationController::class, 'index'])->name('notifications.index');
+    Route::post('/notifications/{id}/mark-as-read', [NotificationController::class, 'markAsRead'])->name('notifications.mark-as-read');
+    Route::post('/notifications/mark-all-read', [NotificationController::class, 'markAllAsRead'])->name('notifications.mark-all-read');
+    Route::delete('/notifications/{id}', [NotificationController::class, 'destroy'])->name('notifications.destroy');
+    Route::get('/notifications/unread-count', [NotificationController::class, 'unreadCount'])->name('notifications.unread-count');
 
-    Route::post('/notifications/{id}/mark-as-read', [NotificationController::class, 'markAsRead'])
-        ->name('notifications.mark-as-read');
-
-    Route::post('/notifications/mark-all-read', [NotificationController::class, 'markAllAsRead'])
-        ->name('notifications.mark-all-read');
-
-    Route::delete('/notifications/{id}', [NotificationController::class, 'destroy'])
-        ->name('notifications.destroy');
-
-    Route::get('/notifications/unread-count', [NotificationController::class, 'unreadCount'])
-        ->name('notifications.unread-count');
-
+    // Milestones
     Route::post('/goals/{goal}/milestones', [MilestoneController::class, 'store'])->name('milestones.store');
     Route::post('/milestones/{milestone}/toggle', [MilestoneController::class, 'toggle'])->name('milestones.toggle');
     Route::put('/milestones/{milestone}', [MilestoneController::class, 'update'])->name('milestones.update');
@@ -144,21 +128,21 @@ Route::middleware(['auth', 'admin'])
     ->name('admin.')
     ->group(function () {
 
-        Route::get('/dashboard', [AdminController::class, 'index'])
-            ->name('dashboard');
+        // Admin Dashboard
+        Route::get('/dashboard', [AdminController::class, 'index'])->name('dashboard');
 
-        Route::get('/users', [AdminController::class, 'users'])
-            ->name('users');
+        // User Management
+        Route::get('/users', [AdminController::class, 'users'])->name('users');
+        Route::get('/users/{id}', [AdminController::class, 'userDetails'])->name('user-details');
+        Route::post('/users/{user}/toggle-admin', [AdminController::class, 'toggleAdmin'])->name('toggle-admin');
+        Route::delete('/users/{user}', [AdminController::class, 'deleteUser'])->name('delete-user');
 
-        Route::get('/users/{id}', [AdminController::class, 'userDetails'])
-            ->name('user-details');
+        // Statistics
+        Route::get('/statistics', [AdminController::class, 'statistics'])->name('statistics');
 
-        Route::post('/users/{user}/toggle-admin', [AdminController::class, 'toggleAdmin'])
-            ->name('toggle-admin');
-
-        Route::delete('/users/{user}', [AdminController::class, 'deleteUser'])
-            ->name('delete-user');
-
-        Route::get('/statistics', [AdminController::class, 'statistics'])
-            ->name('statistics');
+        // Admin Settings (New)
+        Route::get('/settings', [AdminController::class, 'settings'])->name('settings');
+        Route::put('/settings/update', [AdminController::class, 'updateSettings'])->name('settings.update');
+        Route::put('/settings/password', [AdminController::class, 'updatePassword'])->name('settings.password');
+        Route::delete('/settings/profile-picture', [AdminController::class, 'removeProfilePicture'])->name('settings.remove-picture');
     });
