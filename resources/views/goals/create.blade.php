@@ -117,28 +117,6 @@
                         @enderror
                         <small class="form-hint">When do you want to achieve this goal?</small>
                     </div>
-
-                    <div class="form-group">
-                        <label for="progress">
-                            <i class="fas fa-chart-line"></i> Initial Progress
-                        </label>
-                        <div class="progress-input-group">
-                            <input 
-                                type="range" 
-                                id="progress"
-                                name="progress" 
-                                value="{{ old('progress', 0) }}" 
-                                min="0"
-                                max="100"
-                                class="progress-range"
-                                oninput="updateProgressDisplay(this.value)">
-                            <span class="progress-display" id="progressDisplay">{{ old('progress', 0) }}%</span>
-                        </div>
-                        @error('progress')
-                            <span class="error-message">{{ $message }}</span>
-                        @enderror
-                        <small class="form-hint">How much have you already completed? (0-100%)</small>
-                    </div>
                 </div>
             </div>
 
