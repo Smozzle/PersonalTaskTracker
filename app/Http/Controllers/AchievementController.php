@@ -2,10 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use App\Models\Achievement;
-use Illuminate\Support\Facades\Auth;
-
 class AchievementController extends Controller
 {
     public function index()
