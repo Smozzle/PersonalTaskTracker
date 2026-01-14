@@ -351,6 +351,8 @@
     border-radius: 5px;
     outline: none;
     -webkit-appearance: none;
+    appearance: none;
+    cursor: pointer;
     background: #e2e8f0;
 }
 
