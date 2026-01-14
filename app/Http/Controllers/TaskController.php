@@ -23,10 +23,17 @@ class TaskController extends Controller
     {
         $categories = Category::where('user_id', Auth::id())->get();
 
-        // Sort tasks by due date (closest first), then by created_at
-        // Tasks without due date will appear at the end
+        $today = now()->startOfDay();
+
         $tasks = Task::where('user_id', Auth::id())
-            ->orderByRaw('CASE WHEN due_date IS NULL THEN 1 ELSE 0 END')
+            ->orderByRaw("
+            CASE
+                WHEN status = 'Completed' THEN 3
+                WHEN due_date IS NOT NULL AND due_date < ? THEN 0
+                WHEN due_date IS NOT NULL THEN 1
+                ELSE 2
+            END
+        ", [$today])
             ->orderBy('due_date', 'asc')
             ->orderBy('created_at', 'desc')
             ->get();

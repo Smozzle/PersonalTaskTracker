@@ -621,24 +621,140 @@
    MODAL
 ===================================================== */
 
+/* Overlay background */
 .modal-overlay {
     position: fixed;
-    inset: 0;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     background: rgba(0,0,0,0.5);
     display: none;
-    align-items: center;
     justify-content: center;
-    z-index: 1000;
+    align-items: center;
+    z-index: 999;
+    padding: 10px; /* Ensure small screens have padding */
+    overflow-y: auto; /* Scroll if content is taller than viewport */
 }
 
+/* Make overlay active */
 .modal-overlay.active {
     display: flex;
 }
 
+/* Modal container */
 .modal-content {
     background: #fff;
     border-radius: 12px;
-    padding: 2rem;
-    width: 90%;
-    max-width: 500px;
+    width: 100%;
+    max-width: 500px; /* Limit max width */
+    padding: 20px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    position: relative;
+    box-sizing: border-box; /* Include padding in width */
+    overflow: hidden; /* Prevent content overflow */
 }
+
+/* Header */
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.modal-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    word-wrap: break-word; /* Wrap long titles */
+}
+
+/* Close button */
+.modal-close {
+    background: transparent;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+/* Form inside modal */
+.modal-form .form-group {
+    margin-bottom: 15px;
+}
+
+.modal-form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 500;
+    word-wrap: break-word; /* Wrap long labels */
+}
+
+.modal-form input,
+.modal-form textarea {
+    width: 100%; /* Take full width of modal */
+    max-width: 100%; /* Prevent overflow */
+    padding: 8px 12px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+    box-sizing: border-box; /* Include padding in width */
+    word-wrap: break-word; /* Wrap text */
+    resize: vertical; /* Allow vertical resizing of textarea */
+}
+
+/* Number input specific */
+.modal-form input[type="number"] {
+    max-width: 120px; /* Keep number input small */
+}
+
+/* Form actions */
+.modal-form .form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 10px;
+    flex-wrap: wrap; /* Wrap buttons on small screens */
+}
+
+.btn-modal-primary {
+    background: #667eea;
+    color: #fff;
+    padding: 8px 15px;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.btn-modal-secondary {
+    background: #e5e7eb;
+    color: #111827;
+    padding: 8px 15px;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
+    .modal-content {
+        padding: 15px;
+    }
+
+    .modal-title {
+        font-size: 1.1rem;
+    }
+
+    .modal-form input,
+    .modal-form textarea {
+        font-size: 0.9rem;
+    }
+
+    .btn-modal-primary,
+    .btn-modal-secondary {
+        padding: 6px 10px;
+        font-size: 0.9rem;
+    }
+}
+
